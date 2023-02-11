@@ -15,9 +15,15 @@
                     Address:<%= order.CustomerAddr %>
                     <form action="/worker" method="POST">
                         <ul>
-                            <% for(let pending of order.PendingItems) {%>
-                                <li><%=pending.ProductName%>-<%= pending.Qty %> <input type="checkbox" id= <%=pending.ProductName%> name = <%=pending.ProductName%>></li>
+                            <% let productsChecked = [] %>
+                            <% for(let item of order.Items) {%>
+                                <% if(!item.isComplete) {%>
+                                    <li><%=item.ProductName%>-<%= item.Qty %> <input type="checkbox" id= <%=item.ProductName%> name = <%=item.ProductName%>></li>
+                                    <% productsChecked.push(item._id) %>
+                                <% } %>
                             <% } %>
+                            <input type="hidden" name="orderId" value=<%= order._id %>>
+                            <input type="hidden" name="productsId" value=<%= productsChecked %>>
                         </ul>
                         <button>
                             Submit

@@ -11,13 +11,13 @@
   <title>New Order</title>
 
   <!-- CSS-sheet -->
-  <link rel="stylesheet" href="new-order.css">
+  <link rel="stylesheet" href="/public/stylesheets/new-order.css">
 </head>
 
 <body>
   <!-- title -->
   <div class="face-page">
-    <form action="/owner/neworder" method="POST" class="new-order">
+    <form action="/owner/ordernew" method="POST" class="new-order">
       <div class="name">
   
         <label for="name">Customer name: </label>
@@ -35,37 +35,34 @@
       <div class="order">
 
         <div class="item">
-
-          <input type="text">
+            <label for="text1">Item</label>
+            <br>
+          <input type="text" name="text1" id="text1">
 
         </div>
 
         <div class="quantity">
-
-          <input type="number">
+            <label for="number1">Quantity</label>
+            <br>
+          <input type="number" name="number1" id="number1">
 
         </div>
 
-        <div >
+        <div class="add">
 
-          <button class="add">+</button>
+          <input type="button" value="+">
     
         </div>
 
       </div>
-
-      <div class="submit">
-
-        <input type="submit" value="submit">
-
-      </div>
-
+      <input type="submit" value="submit">
     </form>
+    <output id="output"></output>
 
   </div>
       <!-- linking jquery file -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
       <!-- linking js file -->
-      <script src="order-new.js"></script>
+      <script src="/public/javascripts/new-order.js"></script>
 </body>
 </html>

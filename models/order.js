@@ -4,8 +4,7 @@ const Schema = mongoose.Schema;
 const OrderSchema = new Schema({
     CustomerName: String,
     CustomerAddr: String,
-    CompletedItems: [{ProductName: String, Qty: Number}],
-    PendingItems: [{ProductName: String, Qty: Number}],
+    Items: [{ProductName: String, Qty: Number, isComplete: Boolean}],
     Status:Number,
     isAssigned:Boolean
 })

@@ -15,8 +15,10 @@
                     Name:<%= order.CustomerName %>
                     Address:<%= order.CustomerAddr %>
                     <ul>
-                        <% for(let pending of order.PendingItems) {%>
-                            <li><%=pending.ProductName%>-<%= pending.Qty %></li>
+                        <% for(let item of order.Items) {%>
+                            <% if(!item.isComplete) {%>
+                                <li><%=item.ProductName%>-<%= item.Qty %></li>
+                            <% } %>
                         <% } %>
                     </ul>
                     <!--A form with choice to assign to worker dropdown choice-->
@@ -36,8 +38,10 @@
                     Name:<%= order.CustomerName %>
                     Address:<%= order.CustomerAddr %>
                     <ul>
-                        <% for(let pending of order.PendingItems) {%>
-                            <li><%=pending.ProductName%>-<%= pending.Qty %></li>
+                        <% for(let item of order.Items) {%>
+                            <% if(!item.isComplete) {%>
+                                <li><%=item.ProductName%>-<%= item.Qty %></li>
+                            <% } %>
                         <% } %>
                     </ul>
                 <% } %>

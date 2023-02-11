@@ -51,10 +51,9 @@ app.get('/fake', async(req, res) => {
 
 app.get('/makeorder', async (req,res) => {
     const newOrder = new Order({
-    CustomerName: "Tamrakar",
-    CustomerAddr: "Satna",
-    CompletedItems: [{ProductName: "Aloogobhi", Qty: 5}],
-    PendingItems: [{ProductName: "tamatar", Qty: 10},{ProductName: "chola", Qty:4}],
+    CustomerName: "Tamrakarakjsbvk",
+    CustomerAddr: "Satnavsdv",
+    Items: [{ProductName: "Alsdvoogobhi", Qty: 5, isComplete:false},{ProductName: "tavsdvmatar", Qty: 10, isComplete:false},{ProductName: "cholvsdva", Qty:4, isComplete:false}],
     Status: 1,
     });
     await newOrder.save();
@@ -68,7 +67,7 @@ app.get('/owner', async (req, res) => {
 
 
 app.get('/owner/new', async(req, res) => {
-    res.render('owner/newOrder');
+    res.render('owner/ordernew');
 })
 
 //waiting for form
@@ -77,6 +76,10 @@ app.post('/owner/neworder', async(req,res) => {
     req.body.Status = 1;
 })
 
+app.post('/owner/ordernew', async(req,res) => {
+    res.send(req.body);
+    req.body.Status = 1;
+})
 
 app.get('/worker', async (req,res) => {
     const orders = await Order.find({})
@@ -84,7 +87,17 @@ app.get('/worker', async (req,res) => {
 })
 
 app.post('/worker', async(req, res) => {
-    res.send(req.body);
+    const order = await Order.findById(req.body.orderId);
+    for(let prodId of req.body.productsId)
+    {
+        console.log(prodId);
+        order.update({'Items._id':prodId}, {'$set': {
+            'Items.$.isComplete': true
+        }})
+        // order.update({$pull:{"PendingItems":{"_id":prodId}}})
+    }
+    console.log(order)
+    res.redirect('/worker');
 })
 
 app.get('/manager', async(req, res) => {

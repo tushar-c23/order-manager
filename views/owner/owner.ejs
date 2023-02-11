@@ -13,16 +13,20 @@
         <h1>Pending</h1>
         <ul>
             <% for(let order of orders) { %>
-                <% for(let pending of order.PendingItems) {%>
-                    <li><%= pending.ProductName %> - <%= pending.Qty %></li>
+                <% for(let item of order.Items) {%>
+                    <% if(!item.isComplete){ %>
+                        <li><%= item.ProductName %> - <%= item.Qty %></li>
+                    <% } %>
                 <% } %>
             <% } %>
         </ul>
         <h1>Completed</h1>
         <ul>
             <% for(let order of orders) { %>
-                <% for(let completed of order.CompletedItems) {%>
-                    <li><%= completed.ProductName %> - <%= completed.Qty %></li>
+                <% for(let item of order.Items) {%>
+                    <% if(item.isComplete) {%>
+                        <li><%= item.ProductName %> - <%= item.Qty %></li>
+                    <% } %>
                 <% } %>
             <% } %>
         </ul>

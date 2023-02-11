@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Owner</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <h1>Pending</h1>
+        <ul>
+            <% for(let order of orders) { %>
+                <% for(let pending of order.PendingItems) {%>
+                    <li><%= pending.ProductName %> - <%= pending.Qty %></li>
+                <% } %>
+            <% } %>
+        </ul>
+        <h1>Completed</h1>
+        <ul>
+            <% for(let order of orders) { %>
+                <% for(let completed of order.CompletedItems) {%>
+                    <li><%= completed.ProductName %> - <%= completed.Qty %></li>
+                <% } %>
+            <% } %>
+        </ul>
+    </div>
+<!-- <script src="app.js"></script> -->
+</body>
+</html>

@@ -1,0 +1,42 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title></title>
+ <link rel="stylesheet" href="style.css">
+ </head>
+ <body>
+    <div>
+        <% for(let order of orders) { %>
+            <div>
+                <% if(order.Status == 1) { %>
+                    Name:<%= order.CustomerName %>
+                    Address:<%= order.CustomerAddr %>
+                    <ul>
+                        <% for(let pending of order.PendingItems) {%>
+                            <li><%=pending.ProductName%>-<%= pending.Qty %></li>
+                        <% } %>
+                    </ul>
+                    <!--A form with choice to assign to worker dropdown choice-->
+                    <!--when we assign the status needs to be changed to 2-->
+                <% } %>
+            </div>
+            <div>
+                <% if(order.Status == 2) { %>
+                    Name:<%= order.CustomerName %>
+                    Address:<%= order.CustomerAddr %>
+                    <ul>
+                        <% for(let pending of order.PendingItems) {%>
+                            <li><%=pending.ProductName%>-<%= pending.Qty %></li>
+                        <% } %>
+                    </ul>
+                    <%= order.WorkerId %>
+                <% } %>
+            </div>
+        <% } %>
+    </div>
+ <!-- <script src="app.js"></script> -->
+ </body>
+ </html>

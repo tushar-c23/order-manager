@@ -7,7 +7,7 @@ const OrderSchema = new Schema({
     CompletedItems: [{ProductName: String, Qty: Number}],
     PendingItems: [{ProductName: String, Qty: Number}],
     Status:Number,
-    WorkerId:Number
+    isAssigned:Boolean
 })
 
 //Status Number contains 1/2/3 3 stages.

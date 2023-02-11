@@ -20,8 +20,13 @@
                         <% } %>
                     </ul>
                     <!--A form with choice to assign to worker dropdown choice-->
-                    <form action="/manager/assign" method="POST">
-                        <!--add dropdown-->
+                    <form action="/manager" method="POST">
+                        <input type="hidden" name="orderId" value=<%= order._id %>>
+                        <select name="isAssigned" id="isAssigned">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                        <button>Assign</button>
                     </form>
                     <!--when we assign the status needs to be changed to 2-->
                 <% } %>
@@ -35,7 +40,6 @@
                             <li><%=pending.ProductName%>-<%= pending.Qty %></li>
                         <% } %>
                     </ul>
-                    <%= order.WorkerId %>
                 <% } %>
             </div>
         <% } %>

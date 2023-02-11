@@ -51,12 +51,11 @@ app.get('/fake', async(req, res) => {
 
 app.get('/makeorder', async (req,res) => {
     const newOrder = new Order({
-    CustomerName: "Tushar",
-    CustomerAddr: "Tushar",
-    CompletedItems: [{ProductName: "Aloo", Qty: 5}],
-    PendingItems: [{ProductName: "Onion", Qty: 10},{ProductName: "Gobhi", Qty:4}],
-    Status: 2,
-    WorkerId: 1
+    CustomerName: "Tamrakar",
+    CustomerAddr: "Satna",
+    CompletedItems: [{ProductName: "Aloogobhi", Qty: 5}],
+    PendingItems: [{ProductName: "tamatar", Qty: 10},{ProductName: "chola", Qty:4}],
+    Status: 1,
     });
     await newOrder.save();
     res.send(newOrder);
@@ -81,12 +80,11 @@ app.post('/owner/neworder', async(req,res) => {
 
 app.get('/worker', async (req,res) => {
     const orders = await Order.find({})
-    const currId = 1;
-    res.render('worker/worker', {orders, currId});
+    res.render('worker/worker', {orders});
 })
 
 app.post('/worker', async(req, res) => {
-    // req.body.Order
+    res.send(req.body);
 })
 
 app.get('/manager', async(req, res) => {
@@ -95,7 +93,16 @@ app.get('/manager', async(req, res) => {
 })
 
 app.post('/manager', async(req, res) => {
-    
+    // res.send(req.body);
+    if(req.body.isAssigned === 'yes')
+    {
+        const assignedOrder = await Order.findById(req.body.orderId);
+        assignedOrder.isAssigned = true;
+        assignedOrder.Status = 2;
+        await assignedOrder.save();
+        // res.send(assignedOrder);
+    }
+    res.redirect('/manager');
 })
 
 app.listen(port, () => {

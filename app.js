@@ -73,7 +73,7 @@ app.get('/owner/new', async(req, res) => {
 })
 
 //waiting for form
-app.post('/owner/newOrder', async(req,res) => {
+app.post('/owner/neworder', async(req,res) => {
     res.send(req.body);
     req.body.Status = 1;
 })

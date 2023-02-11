@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="https://getbootstrap.com/docs/4.0/components/card/">
+</head>
+<body>
+    <header>
+        <div class="logo">Order Manager</div>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+            
+        <nav class="nav-bar">
+            <ul>
+                <li> <a href="#" class="active"> Home </a> </li>
+                <li> <a href="#" >features</a></li>
+                <li> <a href="#" > pricing</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+
+    
+        <section class = "mainbody" id = "body">
+        <p class="heading">Which one of these are you?</p>
+        <div class="card"> 
+            <div class="container">
+              <h3><b>Owner</b></h3> 
+              <p> <a href="#" class="button">Click here</a> </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="container">
+              <h3><b>Worker</b></h3> 
+              <p> <a href="/WorkerPage.html" class="button">Click here</a> </p> 
+            </div>
+          </div>
+          <div class="card">    
+            <div class="container">
+              <h3><b>Manager</b></h3> 
+              <p> <a href="#" class="button">Click here</a> </p> 
+            </div>
+          </div>
+    </section>
+
+      <!-- Site footer -->
+      <div class="footer-dark">
+        <footer>
+            <center>
+            <div class="container-footer">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Services</h3>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>About</h3>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>Company Name</h3>
+                    </div>
+                </div>
+                <p class="copyright">Company Name © 2018</p>
+            </div>
+        </center>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    
+
+    
+    <script type="text/javascript">
+        hamburger = document.querySelector(".hamburger");
+        hamburger.onclick = function()
+        {
+            navBar = document.querySelector(".nav-bar");
+            navBar.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

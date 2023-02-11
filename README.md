@@ -17,3 +17,5 @@ A system to simplify the life cycle of an order inside an organisation of a Dist
 
 # Technology
 The application is made using nodejs along with express and ejs. We may use several CSS frameworks as and when required.
+
+Made as a submission for HashHacks 5.0.

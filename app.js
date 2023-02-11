@@ -1,12 +1,14 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const ejsMate = require('ejs-mate');
 const Order = require('./models/order');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
 const session = require('express-session');
 const flash = require('connect-flash');
+const methodOverride = require('method-override');
 
 const userRoutes = require('./routes/user');
 
@@ -22,12 +24,14 @@ db.once("open", () => {
 const port = 3000;
 const app = express();
 
+app.engine('ejs',ejsMate);
 app.set('view engine', 'ejs')
 app.set('views',path.join(__dirname,'views'))
 
 app.use(session({secret: 'secret'}));
 app.use(require('flash')());
 app.use(express.urlencoded({extended: true}))
+app.use(express.static(path.join(__dirname,'public')));
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));

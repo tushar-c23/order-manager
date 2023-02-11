@@ -1,0 +1,36 @@
+.mainbody{
+    overflow-x: auto;
+    display: inline-flex;
+    padding: 2%;
+    height: 40%;
+    width: 100%;
+}
+
+.mainbody .card{
+    margin: 2%;
+}
+
+.header{
+    font-size: 3vw;
+    font-weight: bold;
+    width: 100%;
+    margin-left: 7%;
+    margin-top: 4%;
+}
+
+.task-body{
+    overflow-x: auto;
+    display: inline-flex;
+    padding: 2%;
+    height: 30%;
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+.task-body .card{
+    margin: 2%;
+    margin-bottom: 4%;
+}
+
+
+

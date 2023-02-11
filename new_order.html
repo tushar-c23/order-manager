@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- Google Fonts -->
+  <style> @import url('https://fonts.googleapis.com/css2?family=Cabin&family=Major+Mono+Display&family=Montserrat:wght@400;700&family=Pacifico&family=Space+Mono&family=Ubuntu&display=swap'); </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <title>New Order</title>
+
+  <!-- CSS-sheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <!-- title -->
+  <div class="face-page">
+    <form action="" method="get" class="new-order">
+      <div class="name">
+  
+        <label for="name">Customer name: </label>
+        <input type="text" name="name" id="name" required>
+
+      </div>
+
+      <div class="ad">
+
+        <label for="Address">Customer Address: </label>
+        <input type="Address" name="Address" id="Address" required>
+
+      </div>
+
+      <div class="order">
+        <div class="item">
+          <input type="text">
+        </div>
+
+        <div class="quantity">
+          <input type="number">
+        </div>
+        <div >
+
+          <button class="add">+</button>
+    
+        </div>
+
+      </div>
+
+      <div class="submit">
+
+        <input type="submit" value="submit">
+
+      </div>
+
+
+    </form>
+
+  </div>
+      <!-- linking jquery file -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+      <!-- linking js file -->
+      <script src="js/new-order.js"></script>
+</body>
+
+</html>

@@ -54,8 +54,8 @@ app.get('/makeorder', async (req,res) => {
     CustomerName: "Tushar",
     CustomerAddr: "Tushar",
     CompletedItems: [{ProductName: "Aloo", Qty: 5}],
-    PendingItems: [{ProductName: "Onion", Qty: 10}],
-    Status: 1,
+    PendingItems: [{ProductName: "Onion", Qty: 10},{ProductName: "Gobhi", Qty:4}],
+    Status: 2,
     WorkerId: 1
     });
     await newOrder.save();
@@ -81,6 +81,8 @@ app.post('/owner/newOrder', async(req,res) => {
 
 app.get('/worker', async (req,res) => {
     const orders = await Order.find({})
+    const currId = 1;
+    res.render('worker/worker', {orders, currId});
 })
 
 app.post('/worker', async(req, res) => {

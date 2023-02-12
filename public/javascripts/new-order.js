@@ -1,12 +1,21 @@
+var i=1;
 
-const itm="<br><input type='text'>";
-const qnt="<br><input type='number'>";
+// const form=$("new-order");
+// const formData = new FormData(form);
+// const output = document.getElementById('output');
+
+// for (const [key, value] of formData) {
+//   output.textContent += `${key}: ${value}\n`;
+//}
 $(".add").click(function(event){
+    i++;
+    var itm="<label for='text"+i+"'></label><input type='text' name='text"+i+"' id='text"+i+"'>";
+    var qnt="<label for='number"+i+"'></label><input type='number' name='number"+i+"' id='number"+i+"'>";
     $(".item").append(itm);
     $(".quantity").append(qnt);
     event.preventDefault();
 })
-$(".new-order").click(function(e){
-    console.log(e.body);
-})
 
+$(".new-order").on('submit',function(){
+
+})

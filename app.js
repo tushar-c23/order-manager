@@ -25,8 +25,8 @@ const port = 3000;
 const app = express();
 
 app.engine('ejs',ejsMate);
-app.set('view engine', 'ejs')
-app.set('views',path.join(__dirname,'views'))
+app.set('view engine', 'ejs');
+app.set('views',path.join(__dirname,'views'));
 
 app.use(session({secret: 'secret'}));
 app.use(require('flash')());
@@ -71,13 +71,13 @@ app.get('/owner', async (req, res) => {
 
 
 app.get('/owner/new', async(req, res) => {
-    res.render('owner/ordernew');
+    res.render('owner/neworder');
 })
 
 //waiting for form
 app.post('/owner/neworder', async(req,res) => {
-    res.send(req.body);
     req.body.Status = 1;
+    res.redirect('owner');
 })
 
 app.post('/owner/ordernew', async(req,res) => {
